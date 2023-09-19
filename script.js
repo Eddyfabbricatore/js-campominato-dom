@@ -2,6 +2,7 @@
 const main = document.querySelector('.game-wrapper');
 const playBtn = document.querySelector('#play');
 const levelSelect = document.querySelector('#level');
+const finalMessage = document.querySelector('.endMessage');
 
 /* variabili */
 let numCell;
@@ -76,6 +77,10 @@ function hendleClickCell(){
   // controllo se la cella sia una bomba o no
   if(randomBomb.includes(this._cellId)){
     this.classList.add('bomb');
+
+    main.classList.add('end-game');
+
+    return finalMessage.innerHTML = 'Hai trovato una bomba, totale punteggio di ' + (counter - numRandomBomb);
   }else{
     this.classList.add('clicked');
   }
@@ -85,5 +90,5 @@ function hendleClickCell(){
 
   counter++
 
-  console.log(this._cellId);
+  // console.log(this._cellId);
 }
